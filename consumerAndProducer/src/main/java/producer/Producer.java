@@ -18,7 +18,7 @@ public class Producer implements Runnable{
             try{
                 produce(counter++);
             } catch (InterruptedException ex){
-                System.out.println("Caught interrupted exception");
+                System.out.println("Caught interrupted exception when producing item");
                 ex.printStackTrace();
             }
         }
