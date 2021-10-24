@@ -33,14 +33,13 @@ public class Producer implements Runnable{
                 taskQueue.wait();
             }
 
-            System.out.println("Allocating resources to produce item " + counter);
-            Thread.sleep(1000);
+            System.out.println("Producing item " + counter);
             taskQueue.add(counter);
-            System.out.println("Item " + counter + " produced successfully");
 
             //we need this explicit call to notify when consumer finished consume and wait on empty taskQueue
             taskQueue.notifyAll();
         }
+        Thread.sleep(1000);
     }
 
     public List<Integer> getTaskQueue() {

@@ -18,7 +18,7 @@ public class Main {
         Thread producer1 = new Thread(p, "Producer");
         Thread consumer1 = new Thread(c, "Consumer");
 
-        producer1.start();
         consumer1.start();
+        producer1.start();
     }
 }

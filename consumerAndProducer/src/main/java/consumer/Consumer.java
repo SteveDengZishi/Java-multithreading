@@ -30,13 +30,13 @@ public class Consumer implements Runnable{
             }
 
             int item = taskQueue.remove(0);
-            System.out.println("Consuming item " + item + " from the top of taskQueue");
-            Thread.sleep(1000);
-            System.out.println("Finished consuming item " + item);
+            System.out.println("Consuming item " + item);
 
             //release lock and notify other waited thread on the taskQueue when consumed item that reduce max size
             taskQueue.notifyAll();
         }
+        System.out.println("After consume, still " + taskQueue.size() + " items pending in queue.");
+        Thread.sleep(1500);
     }
 
     List<Integer> getTaskQueue(){
